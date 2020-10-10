@@ -1,50 +1,6 @@
 import { BaseComponent } from "./base-component.js";
-const style = /*html*/  `
-    <style>
-        .content-container {
-            padding: 0px;
-            display: flex;
-            flex-wrap: wrap;
-            box-sizing: border-box;
-        }
-        .content-container img {
-            padding: 0px;
-            margin: 0px;
-            overflow: hidden;
-        }
-        .cover {
-            width: 260px;
-            height: 250px;
-            margin: 4px 14px 4px 0px;
-            border-radius: 4px;
-            box-shadow: 0.2px 2px 2px 0.4px rgba(0,0,0,0.3);
-            cursor: pointer;
-        }
-        .img-cover {
-            border-radius: 3px;
-            width: 250px;
-            height: 165px;
-        }
-        .title {
-            margin: 0px;
-            padding: 0px;
-        }
-        .info {
-            display: flex;
-            justify-content: space-between;
-        }
-        .owner-info {
-            display: flex;
-            flex-direction: column;
-        }
-        .avatar {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            border: 1px solid;
-        }
-    </style>
-`;
+import {style} from './content-container.style.js';
+
 class ContentContainer extends BaseComponent {
     constructor() {
         super();
@@ -60,6 +16,9 @@ class ContentContainer extends BaseComponent {
     render() {
         this._shadowRoot.innerHTML = /*html*/ `
             ${style}
+            <div class="notice">
+                <h1>Download App on CHPlay or App-store</h1>
+            </div>
             <div class="content-container"></div>
         `;
 
@@ -88,8 +47,12 @@ class ContentContainer extends BaseComponent {
             this.state.topics.forEach(topic => {
                 stringCover += `
                     <div class="cover">
-                        <img class="img-cover" src="${topic.cover}" />
-                        <h4 class="title">${topic.title}</h4>
+                        <div class="wrap-cover">
+                            <img class="img-cover" src="${topic.cover}" />
+                            <div class="wrap-title">
+                                <h4 class="title">${topic.title}</h4>
+                            </div>
+                        </div>
                         <div class="info">
                             <div class="owner-info">
                                 <img class="avatar" src="${topic.owner}" />

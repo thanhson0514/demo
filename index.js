@@ -18,6 +18,6 @@
 
 // get()
 
-import "./components/base-component.js";
-import "./components/content-container.js";
+import "./components/content_container/base-component.js";
+import "./components/content_container/content-container.js";
 
